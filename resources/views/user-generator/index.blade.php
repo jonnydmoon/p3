@@ -26,7 +26,13 @@
 		
 			<div class="checkbox">
 				<label>
-					<input name="includeBirthdate" type="checkbox" <?= $includeBirthdate === 'on' ? 'checked' : '' ?>> Include Birthdate
+					<input name="includeBirthdate" type="checkbox" {{ $includeBirthdate === 'on' ? 'checked' : '' }}> Include Birthdate
+				</label>
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input name="includePhoto" type="checkbox" {{ $includePhoto === 'on' ? 'checked' : '' }}> Include Photo
 				</label>
 			</div>
 
@@ -40,12 +46,18 @@
 	<div class='user-container'>
 		@foreach ($users as $user)
 			<div>
-				<img src="{{ $user['profile'] }}" />
+				@if ($includePhoto === 'on')
+					<img src="{{ $user['profile'] }}" />
+				@endif
 				{{ $user['firstName'] }}
 				{{ $user['lastName'] }}, 
 				{{ $user['street'] }},
 				{{ $user['city'] }},
 				{{ $user['state'] }}
+				{{ $user['zip'] }}
+				@if ($includeBirthdate === 'on')
+					{{ $user['birthdate'] }}
+				@endif
 			</div>
 		@endforeach
 	</div>

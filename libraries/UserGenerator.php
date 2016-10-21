@@ -12,13 +12,13 @@ class UserGenerator{
 	*/
 	public function handleRequest($input = []){
 		$output = $this->validateInput($input); // Validate and set defaults for all input.
-		$users = $this->getUsers($output['numberOfUsers'], $output['includeBirthdate']);
+		$users = $this->getUsers($output['numberOfUsers'], $output['includeBirthdate'], $output['includePhoto']);
 		$output['users'] = $users;
 		return $output;
 	}
 
 
-	private function getUsers($numberOfUsers, $includeBirthdate){
+	private function getUsers($numberOfUsers, $includeBirthdate, $includePhoto){
 		$func = function($value) {
 			return str_getcsv($value, "\t");
 		}; 
@@ -31,6 +31,8 @@ class UserGenerator{
 		shuffle($femaleIndex);
 		shuffle($maleIndex);
 
+		$minDate = strtotime("jan 1st -40 years");
+		$maxDate = strtotime("jan 1st -18 years");
 
 		for($i = 0; $i < $numberOfUsers; $i++){
 			$gender = rand(0,1) ? 'male' : 'female';
@@ -45,12 +47,25 @@ class UserGenerator{
 				"state"     => $csv[$addressIndex][ 5 ],
 				"zip"       => $csv[$addressIndex][ 6 ],
 				"profile"   => "images/uifaces/$gender/$profileIndex.jpg",
+
 			];
+
+			if($includeBirthdate === 'on'){
+				$user['birthdate'] = date("Y-m-d",  rand($minDate, $maxDate));
+			}
+
+			if($includeBirthdate === 'on'){
+				$user['birthdate'] = date("Y-m-d",  rand($minDate, $maxDate));
+			}
+
+
 			$users[] = $user;
 		}
 
 		return $users;
 	}
+
+
 
 	/*
 		Function: validateInput(associativeArray)
@@ -63,13 +78,15 @@ class UserGenerator{
 		$defaults = [
 			'numberOfUsers' => 5,
 			'includeBirthdate' => 'off',
+			'includePhoto' => 'off',
 		];
 
 		$input = array_merge($defaults, $input);
 		$output = []; // Output are variables that will be available to the html page.
 		$output['errors'] = [];
-		CustomValidator::validateField($input, $output, $defaults, 'numberOfUsers', 'required|numeric|min:1|max:99', null, true);
+		CustomValidator::validateField($input, $output, $defaults, 'numberOfUsers',    'required|numeric|min:1|max:99', null, true);
 		CustomValidator::validateField($input, $output, $defaults, 'includeBirthdate', 'required|in:on,off');
+		CustomValidator::validateField($input, $output, $defaults, 'includePhoto',     'required|in:on,off');
 		return $output;
 	}
 }

@@ -46,6 +46,11 @@ footer{
 	font-size: 28px;
 }
 
+.logo-title a{
+	text-decoration:none;
+	color:white;
+}
+
 .logo-subTitle {
 	font-size: 11px;
 	font-weight: 400;
@@ -178,3 +183,34 @@ select.form-control{
 .tooltip.top .tooltip-arrow{ border-top-color:#dcdcdc; }
 
 .tooltip-arrow.tooltip-arrow{ background-color:transparent;  }
+
+
+a.project-block{
+
+	display:block;
+	text-decoration:none;
+	color:inherit;
+	border:solid 10px white;
+	padding:10px;
+	cursor:pointer;
+	min-height:105px;
+}
+
+a.project-block:hover{
+	border:solid 10px #e8e8e8;
+}
+
+.project-block h2{
+	margin-top:0px;
+}
+
+.project-screenshot.fa{
+	float:left;
+	margin-right:10px;
+	font-size:64px;
+	width:55px;
+}
+
+.project-block p{
+	line-height:100%;
+}

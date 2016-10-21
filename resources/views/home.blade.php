@@ -2,12 +2,25 @@
 
 
 @section('pageTitle')
-    Welcome
+    Welcome To The Toolbox
 @stop
 
 
 @section('content')
-   This is the content for the page.
+
+	<p>This website contains a few tools to make web development a little more easy.</p>
+
+	<div class="row">
+		@foreach ($links as $link)
+		<div class="col-sm-6">
+			<a class="project-block" href="{{ $link['url'] }}">
+				<i class="fa {{ $link['icon'] }} fa-4 project-screenshot" aria-hidden="true"></i>
+				<h2>{{ $link['title'] }}</h2>
+				<p>{{ $link['description'] }}</p>
+			</a>
+		</div>
+		@endforeach
+	</div>
 @stop
 
 

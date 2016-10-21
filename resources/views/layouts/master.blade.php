@@ -24,7 +24,7 @@
 			<header class="row">
 				<div class="col-sm-4">
 					<div class="logo">
-						<div class="logo-title">DEVELOPER'S BEST FRIEND</div>
+						<div class="logo-title"><a href="{{ URL::route('home') }}">DEVELOPER'S BEST FRIEND</a></div>
 						<div class="logo-subTitle">A collection of tools for web development</div>
 					</div>
 
@@ -32,7 +32,7 @@
 				<nav class="col-sm-8">
 					<a class="{{ Request::is('lorem-ipsum*') ? 'active' : '' }}" href="{{ URL::route('lorem-ipsum.index') }}">Lorem Ipsum</a>
 					<a class="{{ Request::is('password-generator*') ? 'active' : '' }}" href="{{ URL::route('password-generator.index') }}">Password Generator</a>
-					<a class="{{ Request::is('user-generator*') ? 'active' : '' }}" href="{{ URL::route('user-generator.index') }}">User Content</a>
+					<a class="{{ Request::is('user-generator*') ? 'active' : '' }}" href="{{ URL::route('user-generator.index') }}">User Generator</a>
 				</nav>
 			</header>
 		</div>
