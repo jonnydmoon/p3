@@ -36,6 +36,12 @@ class PageController extends Controller
 				'description' => 'Create strong, random passwords that are easy to remember.',
 				'icon'        => 'fa-unlock-alt',
 				'url'         => URL::route('password-generator.index')
+			],
+			[
+				'title'       => 'Image Generator',
+				'description' => 'Resize and crop images.',
+				'icon'        => 'fa-picture-o',
+				'url'         => URL::route('image-generator.index')
 			]
 		];
 

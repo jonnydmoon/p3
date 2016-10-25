@@ -33,6 +33,7 @@
 					<a class="{{ Request::is('lorem-ipsum*') ? 'active' : '' }}" href="{{ URL::route('lorem-ipsum.index') }}">Lorem Ipsum</a>
 					<a class="{{ Request::is('password-generator*') ? 'active' : '' }}" href="{{ URL::route('password-generator.index') }}">Password Generator</a>
 					<a class="{{ Request::is('user-generator*') ? 'active' : '' }}" href="{{ URL::route('user-generator.index') }}">User Generator</a>
+					<a class="{{ Request::is('image-generator*') ? 'active' : '' }}" href="{{ URL::route('image-generator.index') }}">Image Generator</a>
 				</nav>
 			</header>
 		</div>
@@ -44,7 +45,7 @@
 					
 					{{-- Global error section --}}
 					@foreach ($errors as $error)
-						<div class="alert alert-danger" role="alert"> <strong>Error</strong> {{ implode('<br /><strong>Error</strong> ', $errors) }}</div>
+						<div class="alert alert-danger" role="alert"> <strong>Error</strong> {{ $error }}</div>
 					@endforeach
 
 					{{-- Page Title --}}

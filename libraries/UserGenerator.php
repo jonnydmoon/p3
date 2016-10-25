@@ -39,23 +39,21 @@ class UserGenerator{
 			$profileIndex = $gender === 'female' ? array_pop($femaleIndex) : array_pop($maleIndex);
 			$addressIndex = rand(0, $max);
 			$user = [
-				"gender"    => $gender,   
 				"firstName" => $csv[rand(0, $max)][ $gender === 'female' ? 0 : 1 ],
 				"lastName"  => $csv[rand(0, $max)][ 2 ],
-				"street"    => rand(1, 9999) . ' ' .$csv[rand(0, $max)][ 3 ],
+				"gender"    => $gender,   
+				"address"   => rand(1, 9999) . ' ' .$csv[rand(0, $max)][ 3 ],
 				"city"      => $csv[$addressIndex][ 4 ],
 				"state"     => $csv[$addressIndex][ 5 ],
-				"zip"       => $csv[$addressIndex][ 6 ],
-				"profile"   => "images/uifaces/$gender/$profileIndex.jpg",
-
+				"zip"       => $csv[$addressIndex][ 6 ]
 			];
 
 			if($includeBirthdate === 'on'){
 				$user['birthdate'] = date("Y-m-d",  rand($minDate, $maxDate));
 			}
 
-			if($includeBirthdate === 'on'){
-				$user['birthdate'] = date("Y-m-d",  rand($minDate, $maxDate));
+			if($includePhoto === 'on'){
+				$user['profile'] = getenv('APP_URL') . "images/uifaces/$gender/$profileIndex.jpg";
 			}
 
 
@@ -79,6 +77,7 @@ class UserGenerator{
 			'numberOfUsers' => 5,
 			'includeBirthdate' => 'off',
 			'includePhoto' => 'off',
+			'format' => 'html',
 		];
 
 		$input = array_merge($defaults, $input);
@@ -87,6 +86,7 @@ class UserGenerator{
 		CustomValidator::validateField($input, $output, $defaults, 'numberOfUsers',    'required|numeric|min:1|max:99', null, true);
 		CustomValidator::validateField($input, $output, $defaults, 'includeBirthdate', 'required|in:on,off');
 		CustomValidator::validateField($input, $output, $defaults, 'includePhoto',     'required|in:on,off');
+		CustomValidator::validateField($input, $output, $defaults, 'format',           'required|in:html,json');
 		return $output;
 	}
 }
