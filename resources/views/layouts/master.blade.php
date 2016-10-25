@@ -42,7 +42,6 @@
 		<main class="container main-content">
 			<div class="row main-row">
 				<div class="col-sm-12">
-					
 					{{-- Global error section --}}
 					@foreach ($errors as $error)
 						<div class="alert alert-danger" role="alert"> <strong>Error</strong> {{ $error }}</div>
@@ -53,7 +52,7 @@
 
 					{{-- Main page content --}}
 					@yield('content')
-
+				</div>
 			</div>
 
 			<footer>
