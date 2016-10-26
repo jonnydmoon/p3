@@ -66,7 +66,7 @@
 		@endif
 
 		@if($format === 'json')
-			<textarea class="user-content-json">{{ json_encode($users, JSON_PRETTY_PRINT) }}</textarea>
+			<textarea class="user-content-json">{{ json_encode($users, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</textarea>
 		@endif
 	</div>
 

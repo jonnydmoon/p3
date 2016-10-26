@@ -21,7 +21,7 @@ class PageController extends Controller
 		$links = [
 			[
 				'title'       => 'Lorem Ipsum',
-				'description' => 'Create random blocks of lore ipsum text.',
+				'description' => 'Create random blocks of lorem ipsum text.',
 				'icon'        => 'fa-file-text',
 				'url'         => URL::route('lorem-ipsum.index')
 			],
@@ -42,6 +42,12 @@ class PageController extends Controller
 				'description' => 'Resize and crop images.',
 				'icon'        => 'fa-picture-o',
 				'url'         => URL::route('image-generator.index')
+			],
+			[
+				'title'       => 'JSON Formatter',
+				'description' => 'A simple JSON formatter',
+				'icon'        => 'fa-file-code-o',
+				'url'         => URL::route('json-formatter.index')
 			]
 		];
 

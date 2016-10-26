@@ -7,7 +7,7 @@
 This website provides a few tools to help in web development. 
 * Lorem Ipsum - Generate lorem ipsum text blocks.
 * Password Generator - Create a memorable password that needs to match certain rules.
-* User Generator - Generate user content for ui mock ups.
+* User Generator - Generate user content for UI mock ups.
 * Image Generator - Resize images and adjust quality.
 
 ## Demo
@@ -25,8 +25,14 @@ If there is invalid data, it is usually auto-corrected to the default value and 
 As part of the user generator, I added the ability to export the data in JSON format. This is 
 useful for using the user content in a variety of programming languages.
 
+I also added a JSON Formatter tool. It has a couple of display modes. It allows the user to display 
+the JSON using "fullscreen" without the website header and footer. The editor uses the Ace editor.
+I chose to use the Ace editor because I like how it can highlight the JSON and give visual indications 
+of errors.
 
-## Outside code and Resources
+
+
+## Outside Code, Resources, and Packages
 * Bootstrap: http://getbootstrap.com/
 * Google Fonts: https://fonts.google.com/
 * Font Awesome: http://fontawesome.io/
@@ -35,9 +41,13 @@ useful for using the user content in a variety of programming languages.
 * First and Last Names: http://names.mongabay.com
 * City, State, Zipcode: http://federalgovernmentzipcodes.us/
 * Addresses: https://www.randomlists.com/random-addresses
-
-## Outside images
 * User Content Profile Images: http://uifaces.com
+
+* JSON Editor: https://ace.c9.io
+* Intervention Image: http://image.intervention.io/
+* Webmozart JSON: https://github.com/webmozart/json
+
+
 
 
 

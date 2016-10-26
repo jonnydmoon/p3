@@ -16,6 +16,7 @@
 	<link rel="icon" href="favicon.ico" />
 	<script   src="http://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/ace/1.2.4/min/ace.js"></script>
 </head>
 
 <body>
@@ -31,9 +32,10 @@
 				</div>
 				<nav class="col-sm-8">
 					<a class="{{ Request::is('lorem-ipsum*') ? 'active' : '' }}" href="{{ URL::route('lorem-ipsum.index') }}">Lorem Ipsum</a>
-					<a class="{{ Request::is('password-generator*') ? 'active' : '' }}" href="{{ URL::route('password-generator.index') }}">Password Generator</a>
 					<a class="{{ Request::is('user-generator*') ? 'active' : '' }}" href="{{ URL::route('user-generator.index') }}">User Generator</a>
+					<a class="{{ Request::is('password-generator*') ? 'active' : '' }}" href="{{ URL::route('password-generator.index') }}">Password Generator</a>
 					<a class="{{ Request::is('image-generator*') ? 'active' : '' }}" href="{{ URL::route('image-generator.index') }}">Image Generator</a>
+					<a class="{{ Request::is('json-formatterr*') ? 'active' : '' }}" href="{{ URL::route('json-formatter.index') }}">JSON Formatter</a>
 				</nav>
 			</header>
 		</div>
@@ -44,11 +46,19 @@
 				<div class="col-sm-12">
 					{{-- Global error section --}}
 					@foreach ($errors as $error)
-						<div class="alert alert-danger" role="alert"> <strong>Error</strong> {{ $error }}</div>
+						<div class="alert alert-danger" data-dismiss="alert" role="alert">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong>Error</strong> {{ $error }}
+						</div>
 					@endforeach
 
 					{{-- Page Title --}}
-					<div class="page-title">@yield('pageTitle')  <i class="fa fa-question-circle page-help" aria-hidden="true" data-toggle="tooltip" title="@yield('pageHelp')"></i></div>
+					<div class="page-title">
+						@yield('pageTitle')
+						@if($__env->yieldContent('pageHelp'))
+							<i class="fa fa-question-circle page-help" aria-hidden="true" data-toggle="tooltip" title="@yield('pageHelp')"></i>
+						@endif
+					</div>
 
 					{{-- Main page content --}}
 					@yield('content')
