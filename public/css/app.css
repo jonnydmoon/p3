@@ -59,7 +59,7 @@ footer{
 	top: -8px
 }
 
-@media (max-width: 400px) {
+@media (max-width: 962px) {
 	.logo-title {
 		font-size: 16px;
 	}
@@ -89,6 +89,19 @@ nav a:hover{
 
 nav a.active{
 	text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+	nav a{
+		font-size:11px;
+		padding:4px;
+	}
+}
+
+@media (max-width: 550px) {
+	nav a{
+		display:block;
+	}
 }
 
 h1 {
@@ -320,4 +333,8 @@ body:not(.fullscreen) #editorAce{
     opacity:.8;
     width: 50%;
     margin: 10px auto;
+}
+
+.home-page-links > .col-sm-6:nth-child(odd){
+	clear:left;
 }

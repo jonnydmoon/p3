@@ -10,7 +10,7 @@
 
 	<p>This website contains a few tools to make web development a little more easy.</p>
 
-	<div class="row">
+	<div class="row home-page-links">
 		@foreach ($links as $link)
 		<div class="col-sm-6">
 			<a class="project-block" href="{{ $link['url'] }}">
