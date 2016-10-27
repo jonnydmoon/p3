@@ -3,7 +3,6 @@
 namespace Libraries;
 use Libraries\CustomValidator;
 
-
 class UserGenerator{
 	/*
 		Function: handleRequest()
@@ -17,12 +16,16 @@ class UserGenerator{
 		return $output;
 	}
 
-
+	/*
+		Function: getUsers(number, boolean, boolean)
+		Description: 
+		Returns an array of users.
+	*/
 	private function getUsers($numberOfUsers, $includeBirthdate, $includePhoto){
 		$func = function($value) {
 			return str_getcsv($value, "\t");
 		}; 
-		$csv = array_map($func, file( __DIR__ . '/usercontent.csv'));
+		$csv = array_map($func, file( __DIR__ . '/data/usercontent.csv'));
 		$max = count($csv) - 1;
 		$users = [];
 
@@ -31,7 +34,7 @@ class UserGenerator{
 		shuffle($femaleIndex);
 		shuffle($maleIndex);
 
-		$minDate = strtotime("jan 1st -40 years");
+		$minDate = strtotime("jan 1st -40 years"); // Let's keep all the ages within the 18 to 40 years.
 		$maxDate = strtotime("jan 1st -18 years");
 
 		for($i = 0; $i < $numberOfUsers; $i++){
@@ -55,7 +58,6 @@ class UserGenerator{
 			if($includePhoto === 'on'){
 				$user['profile'] = getenv('APP_URL') . "images/uifaces/$gender/$profileIndex.jpg";
 			}
-
 
 			$users[] = $user;
 		}

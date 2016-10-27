@@ -7,17 +7,10 @@ use Libraries\JSONFormatter;
 
 class JSONFormatterController extends Controller
 {
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $jsonFormatter = new JSONFormatter();
         $output = $jsonFormatter->handleRequest( $request->all() );
         return view('json-formatter.index')->with($output);
     }
-
 }

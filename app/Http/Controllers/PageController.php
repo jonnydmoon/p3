@@ -1,21 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Support\Facades\URL;
 
 class PageController extends Controller
 {
-	/**
-	 * Displays the homepage.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function home()
 	{
 		$links = [
@@ -45,25 +37,13 @@ class PageController extends Controller
 			],
 			[
 				'title'       => 'JSON Formatter',
-				'description' => 'A simple JSON formatter',
+				'description' => 'Format JSON into a readable form.',
 				'icon'        => 'fa-file-code-o',
 				'url'         => URL::route('json-formatter.index')
 			]
 		];
 
 		return view('home')->with(['links' => $links]);
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function store(Request $request)
-	{
-		//
 	}
 
 }

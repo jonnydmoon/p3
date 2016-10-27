@@ -8,14 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Libraries\ImageGenerator;
 
-
 class ImageGeneratorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $imageGenerator = new ImageGenerator();

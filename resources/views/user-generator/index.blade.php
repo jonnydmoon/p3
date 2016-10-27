@@ -1,18 +1,10 @@
 @extends('layouts.master')
 
-
-@section('title')
-    User Generator
-@stop
-
-@section('pageTitle')
-    User Generator
-@stop
+@section('title', 'User Generator')
 
 @section('pageHelp')
     Modify the options below to generate user profiles.
 @stop
-
 
 @section('content')
 	<form method="GET" action="?">
@@ -40,13 +32,9 @@
 				<option value="html" <?= $format === 'html' ? 'selected' : '' ?>>HTML Format</option>
 				<option value="json" <?= $format === 'json' ? 'selected' : '' ?>>JSON Format</option>
 			</select>
-
 		</div>
-
 		<button type="submit" class="btn btn-success">Generate</button>
 	</form>
-
-
 
 	<div class='user-container'>
 		@if($format === 'html')

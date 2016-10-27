@@ -17,11 +17,8 @@ class PasswordGenerator
 	*/
 	public function handleRequest($input = []){
 		$output = $this->validateInput($input); // Validate and set defaults for all input.
-
 		$words = $this->getWords($output['numberOfWords']);
-
 		$words = $this->transformTextCasing($words, $output['textTransform']);
-
 		$password = $this->handleDelimiter($words, $output['delimiter']);
 		
 		if($output['includeNumber'] === 'on'){
@@ -66,7 +63,7 @@ class PasswordGenerator
 
 	// Returns a random number of words as an array.
 	private function getWords($numberOfWords){
-		$words = file( __DIR__ . '/words.csv', FILE_IGNORE_NEW_LINES);
+		$words = file( __DIR__ . '/data/words.csv', FILE_IGNORE_NEW_LINES);
 		shuffle($words);
 		return array_slice($words, 0, $numberOfWords);
 	}

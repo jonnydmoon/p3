@@ -1,14 +1,10 @@
 @extends('layouts.master')
 
-
-@section('pageTitle')
-    Password Generator
-@stop
+@section('title', 'Password Generator')
 
 @section('pageHelp')
     Modify the options below to create a password inspired by the XKCD web comic.
 @stop
-
 
 @section('content')
 	<form method="GET" action="?">

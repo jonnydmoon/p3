@@ -1,14 +1,10 @@
-
 @extends( $mode === 'fullscreenEditor' || $mode === 'fullscreenSimple' ? 'layouts.fullscreen' : 'layouts.master')
 
-@section('pageTitle')
-    JSON Formatter
-@stop
+@section('title', 'JSON Formatter')
 
 @section('pageHelp')
     A simple JSON formatter to easily view data.
 @stop
-
 
 @section('content')
 	<form class="json-format-form" method="POST" action="?" onSubmit="return submitJSONForm()">
@@ -28,7 +24,6 @@
 		<div id="editorAce">{{$text}}</div>
 	@endif
 
-	
 	<script src="js/jsonFormatter.js"></script>
 @stop
 

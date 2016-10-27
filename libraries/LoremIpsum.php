@@ -16,23 +16,25 @@ class LoremIpsum{
 		return $output;
 	}
 
-
+	/*
+		Function: getWords(number, number)
+		Description: 
+		Gets the words from the file based off of the number of paragraphs and paragraph length.
+	*/
 	private function getWords($numberOfParagraphs, $paragraphLength){
-		$words = file( __DIR__ . '/lorem.txt', FILE_IGNORE_NEW_LINES);
-		
+		$words = file( __DIR__ . '/data/lorem.txt', FILE_IGNORE_NEW_LINES);
 		$str = '';
 
+		// for each paragraph generate a random number of sentences.
 		for($i = 0; $i < $numberOfParagraphs; $i++){
 			$currentParagraphLength = $paragraphLength + rand(0, 2); // Make the paragraphs a little bigger or smaller.
 		
 			for($j = 0; $j < $currentParagraphLength; $j++){
 				$currentLine = rand(0, count($words) - 1);
-				
 				$str .= $words[$currentLine] . ' ';
 			}
 			$str .= "\n\n";
 		}
-
 		return trim($str);
 	}
 
@@ -56,7 +58,4 @@ class LoremIpsum{
 		CustomValidator::validateField($input, $output, $defaults, 'paragraphLength', 'required|numeric|in:1,4,6', null, true);
 		return $output;
 	}
-
-   
-
 }

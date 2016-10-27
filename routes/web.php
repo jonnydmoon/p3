@@ -19,9 +19,10 @@ Route::get("/user-generator", "UserGeneratorController@index")->name("user-gener
 
 Route::get("/password-generator", "PasswordGeneratorController@index")->name("password-generator.index");
 
+// Both get and post go to the same view.
 Route::get("/image-generator", "ImageGeneratorController@index")->name("image-generator.index");
-Route::post("/image-generator", "ImageGeneratorController@index")->name("image-generator.index");
+Route::post("/image-generator", "ImageGeneratorController@index");
 
-
+// Both get and post go to the same view.
 Route::get("/json-formatter", "JSONFormatterController@index")->name("json-formatter.index");
-Route::post("/json-formatter", "JSONFormatterController@index")->name("json-formatter.index");
+Route::post("/json-formatter", "JSONFormatterController@index");

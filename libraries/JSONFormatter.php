@@ -2,7 +2,6 @@
 
 namespace Libraries;
 use Libraries\CustomValidator;
-
 use Webmozart\Json\JsonEncoder;
 use Webmozart\Json\JsonDecoder;
 use Webmozart\Json\JsonValidator;
@@ -13,18 +12,12 @@ class JSONFormatter{
 	/*
 		Function: handleRequest()
 		Description: 
-		Main controller function. Validates input, and returns a new password.
+		Main controller function. Validates input, and returns formattedJSON.
 	*/
 	public function handleRequest($input = []){
 		$output = $this->validateInput($input); // Validate and set defaults for all input.
-		
-		//dd($output);
-
 		return $output;
 	}
-
-
-	
 
 	/*
 		Function: validateInput(associativeArray)
@@ -50,6 +43,7 @@ class JSONFormatter{
 		$encoder->setPrettyPrinting(true);
 		$encoder->setEscapeSlash(false);
 
+		// Try to decode and re-encode. It there is an error, we will make note, and return the original text.
 		try{
 			if($output['text']){
 				$data = $decoder->decode($output['text']);

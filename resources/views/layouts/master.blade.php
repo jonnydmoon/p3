@@ -28,7 +28,6 @@
 						<div class="logo-title"><a href="{{ URL::route('home') }}">DEVELOPER'S BEST FRIEND</a></div>
 						<div class="logo-subTitle">A collection of tools for web development</div>
 					</div>
-
 				</div>
 				<nav class="col-sm-8">
 					<a class="{{ Request::is('lorem-ipsum*') ? 'active' : '' }}" href="{{ URL::route('lorem-ipsum.index') }}">Lorem Ipsum</a>
@@ -54,7 +53,7 @@
 
 					{{-- Page Title --}}
 					<div class="page-title">
-						@yield('pageTitle')
+						@yield('title')
 						@if($__env->yieldContent('pageHelp'))
 							<i class="fa fa-question-circle page-help" aria-hidden="true" data-toggle="tooltip" title="@yield('pageHelp')"></i>
 						@endif

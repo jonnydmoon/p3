@@ -1,4 +1,4 @@
-# Project 3: Laravel Basics
+# Project 3: Developer's Best Friend
 
 ## Live URL
 <http://p3.jonnymoon.com>
@@ -11,7 +11,7 @@ This website provides a few tools to help in web development.
 * Image Generator - Resize images and adjust quality.
 
 ## Demo
-<https://youtu.be/XXXXXXXXXXXXXXXXXXXXX>
+<https://youtu.be/CoPVCPMQxHs>
 
 ## Details for teaching team
 The website is responsive. I converted/included the password generator from project 2.
@@ -30,8 +30,6 @@ the JSON using "fullscreen" without the website header and footer. The editor us
 I chose to use the Ace editor because I like how it can highlight the JSON and give visual indications 
 of errors.
 
-
-
 ## Outside Code, Resources, and Packages
 * Bootstrap: http://getbootstrap.com/
 * Google Fonts: https://fonts.google.com/
@@ -42,7 +40,6 @@ of errors.
 * City, State, Zipcode: http://federalgovernmentzipcodes.us/
 * Addresses: https://www.randomlists.com/random-addresses
 * User Content Profile Images: http://uifaces.com
-
 * JSON Editor: https://ace.c9.io
 * Intervention Image: http://image.intervention.io/
 * Webmozart JSON: https://github.com/webmozart/json

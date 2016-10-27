@@ -1,13 +1,8 @@
 @extends('layouts.master')
 
-
-@section('pageTitle')
-    Welcome To The Toolbox
-@stop
-
+@section('title', 'Welcome To The Toolbox')
 
 @section('content')
-
 	<p>This website contains a few tools to make web development a little more easy.</p>
 
 	<div class="row home-page-links">

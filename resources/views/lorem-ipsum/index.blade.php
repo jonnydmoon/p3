@@ -1,16 +1,9 @@
 @extends('layouts.master')
 
-
-@section('title')
-    Lorem Ipsum Generator
-@stop
-
-@section('pageTitle')
-    Lorem Ipsum Generator
-@stop
+@section('title', 'Lorem Ipsum Generator')
 
 @section('pageHelp')
-    Modify the options below to generate some lorem ipsum place holder content.
+	Modify the options below to generate some lorem ipsum place holder content.
 @stop
 
 
